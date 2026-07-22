@@ -2,7 +2,7 @@
 <html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>虎码字根练习</title>
   <style>
     :root {
@@ -831,6 +831,8 @@
       caret-color: transparent;
       color: transparent;
       cursor: default;
+      /* 16px 防止 iOS Safari 聚焦时自动放大页面 */
+      font-size: 16px;
     }
 
     .code-boxes {
@@ -926,9 +928,36 @@
     }
 
     @media (max-width: 600px) {
-      .card { padding: 22px 16px; }
+      body {
+        /* 用动态视口高度适配移动端浏览器地址栏收缩，顶部对齐避免缩放后溢出 */
+        min-height: 100vh;
+        min-height: 100dvh;
+        place-items: start center;
+        padding: 16px 12px;
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+        padding-top: max(16px, env(safe-area-inset-top));
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+      }
+      .app {
+        width: 100%;
+        /* 移动端取消桌面端的放大与上移，避免横向溢出 */
+        transform: none;
+        gap: 16px;
+      }
+      .title { font-size: clamp(24px, 7vw, 32px); }
+      .card { padding: 20px 14px; min-height: 220px; }
       .top-meta { gap: 10px; }
       .side-controls { gap: 8px; }
+      .controls {
+        margin-left: 0;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      /* 移动端加大点按目标，方便手指操作 */
+      .mode-btn { padding: 8px 12px; font-size: 13px; }
+      .size-btn { padding: 8px 12px; font-size: 13px; }
+      .palette-select select { padding: 8px 12px; font-size: 13px; }
       .code-box { width: var(--box-size-mobile); height: var(--box-size-mobile); font-size: var(--box-font-mobile); }
       .footer-row--legal {
         grid-template-columns: 1fr;
@@ -936,6 +965,16 @@
       }
       .footer-right {
         justify-self: center;
+      }
+    }
+
+    /* 触屏设备没有 hover：半隐/全隐模式下控制栏改为常驻可见，避免无法呼出 */
+    @media (hover: none) {
+      .ui-half .side-controls,
+      .ui-full .side-controls {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
       }
     }
   </style>
