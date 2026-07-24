@@ -3,981 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link rel="stylesheet" href="style.css">
   <title>虎码字根练习</title>
-  <style>
-    :root {
-      --bg1: #fdf6e3;
-      --bg2: #eee8d5;
-      --ink: #586e75;
-      --muted: #839496;
-      --accent: #268bd2;
-      --accent-2: #2aa198;
-      --card: #f7f0e1;
-      --line: rgba(88,110,117,0.2);
-      --good: #859900;
-      --bad: #dc322f;
-      --shadow: 0 20px 50px rgba(88,110,117,0.18);
-      --glow-1: rgba(38,139,210,0.12);
-      --glow-2: rgba(203,75,22,0.1);
-      --card-glow-1: rgba(38,139,210,0.14);
-      --card-glow-2: rgba(42,161,152,0.12);
-      --ui-surface: rgba(253,246,227,0.75);
-      --ui-surface-active: #fdf6e3;
-      --ui-border: rgba(88,110,117,0.2);
-      --ui-text: #839496;
-      --ui-text-active: #586e75;
-      --ui-shadow: 0 6px 14px rgba(88,110,117,0.18);
-      --ui-hover-border: rgba(38,139,210,0.45);
-      --ui-hover-shadow: 0 6px 14px rgba(38,139,210,0.16);
-      --btn-surface: #fdf6e3;
-      --box-surface: #fdf6e3;
-      --box-text: #586e75;
-      --root-min: 24px;
-      --root-vw: 3.5vw;
-      --root-max: 44px;
-      --box-size: 34px;
-      --box-font: 18px;
-      --box-size-mobile: 30px;
-      --box-font-mobile: 16px;
-    }
-
-    body.theme-solarized.theme-dark {
-      --bg1: #002b36;
-      --bg2: #073642;
-      --ink: #eee8d5;
-      --muted: #93a1a1;
-      --accent: #268bd2;
-      --accent-2: #2aa198;
-      --card: #0b3944;
-      --line: rgba(238,232,213,0.16);
-      --good: #859900;
-      --bad: #dc322f;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-      --glow-1: rgba(38,139,210,0.18);
-      --glow-2: rgba(203,75,22,0.16);
-      --card-glow-1: rgba(38,139,210,0.2);
-      --card-glow-2: rgba(203,75,22,0.18);
-      --ui-surface: rgba(7,54,66,0.85);
-      --ui-surface-active: #0b3944;
-      --ui-border: rgba(147,161,161,0.35);
-      --ui-text: #93a1a1;
-      --ui-text-active: #eee8d5;
-      --ui-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --ui-hover-border: rgba(147,161,161,0.55);
-      --ui-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --btn-surface: #073642;
-      --box-surface: #586e75;
-      --box-text: #fdf6e3;
-    }
-
-    body.theme-nord {
-      --bg1: #eceff4;
-      --bg2: #e5e9f0;
-      --ink: #2e3440;
-      --muted: #4c566a;
-      --accent: #5e81ac;
-      --accent-2: #8fbcbb;
-      --card: #f1f3f7;
-      --line: rgba(46,52,64,0.16);
-      --good: #a3be8c;
-      --bad: #bf616a;
-      --shadow: 0 20px 50px rgba(46,52,64,0.18);
-      --glow-1: rgba(94,129,172,0.16);
-      --glow-2: rgba(136,192,208,0.12);
-      --card-glow-1: rgba(94,129,172,0.16);
-      --card-glow-2: rgba(143,188,187,0.12);
-      --ui-surface: rgba(236,239,244,0.8);
-      --ui-surface-active: #eceff4;
-      --ui-border: rgba(46,52,64,0.16);
-      --ui-text: #4c566a;
-      --ui-text-active: #2e3440;
-      --ui-shadow: 0 6px 14px rgba(46,52,64,0.18);
-      --ui-hover-border: rgba(94,129,172,0.45);
-      --ui-hover-shadow: 0 6px 14px rgba(46,52,64,0.18);
-      --btn-surface: #eceff4;
-      --box-surface: #eceff4;
-      --box-text: #2e3440;
-    }
-
-    body.theme-nord.theme-dark {
-      --bg1: #2e3440;
-      --bg2: #3b4252;
-      --ink: #e5e9f0;
-      --muted: #d8dee9;
-      --accent: #88c0d0;
-      --accent-2: #8fbcbb;
-      --card: #434c5e;
-      --line: rgba(236,239,244,0.14);
-      --good: #a3be8c;
-      --bad: #bf616a;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-      --glow-1: rgba(136,192,208,0.18);
-      --glow-2: rgba(143,188,187,0.16);
-      --card-glow-1: rgba(136,192,208,0.2);
-      --card-glow-2: rgba(191,97,106,0.16);
-      --ui-surface: rgba(67,76,94,0.9);
-      --ui-surface-active: #4c566a;
-      --ui-border: rgba(236,239,244,0.2);
-      --ui-text: #d8dee9;
-      --ui-text-active: #eceff4;
-      --ui-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --ui-hover-border: rgba(136,192,208,0.55);
-      --ui-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --btn-surface: #4c566a;
-      --box-surface: #4c566a;
-      --box-text: #eceff4;
-    }
-
-    body.theme-catppuccin {
-      --bg1: #eff1f5;
-      --bg2: #e6e9ef;
-      --ink: #4c4f69;
-      --muted: #6c6f85;
-      --accent: #1e66f5;
-      --accent-2: #179299;
-      --card: #e6e9ef;
-      --line: rgba(76,79,105,0.18);
-      --good: #40a02b;
-      --bad: #d20f39;
-      --shadow: 0 20px 50px rgba(76,79,105,0.18);
-      --glow-1: rgba(30,102,245,0.14);
-      --glow-2: rgba(220,138,120,0.12);
-      --card-glow-1: rgba(30,102,245,0.14);
-      --card-glow-2: rgba(23,146,153,0.12);
-      --ui-surface: rgba(239,241,245,0.8);
-      --ui-surface-active: #eff1f5;
-      --ui-border: rgba(76,79,105,0.18);
-      --ui-text: #6c6f85;
-      --ui-text-active: #4c4f69;
-      --ui-shadow: 0 6px 14px rgba(76,79,105,0.18);
-      --ui-hover-border: rgba(30,102,245,0.45);
-      --ui-hover-shadow: 0 6px 14px rgba(30,102,245,0.16);
-      --btn-surface: #eff1f5;
-      --box-surface: #eff1f5;
-      --box-text: #4c4f69;
-    }
-
-    body.theme-catppuccin.theme-dark {
-      --bg1: #1e1e2e;
-      --bg2: #181825;
-      --ink: #cdd6f4;
-      --muted: #a6adc8;
-      --accent: #89b4fa;
-      --accent-2: #94e2d5;
-      --card: #313244;
-      --line: rgba(205,214,244,0.14);
-      --good: #a6e3a1;
-      --bad: #f38ba8;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-      --glow-1: rgba(137,180,250,0.18);
-      --glow-2: rgba(250,179,135,0.16);
-      --card-glow-1: rgba(137,180,250,0.2);
-      --card-glow-2: rgba(148,226,213,0.16);
-      --ui-surface: rgba(49,50,68,0.9);
-      --ui-surface-active: #45475a;
-      --ui-border: rgba(205,214,244,0.18);
-      --ui-text: #a6adc8;
-      --ui-text-active: #cdd6f4;
-      --ui-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --ui-hover-border: rgba(137,180,250,0.55);
-      --ui-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --btn-surface: #45475a;
-      --box-surface: #45475a;
-      --box-text: #cdd6f4;
-    }
-
-    body.theme-gruvbox {
-      --bg1: #fbf1c7;
-      --bg2: #ebdbb2;
-      --ink: #3c3836;
-      --muted: #665c54;
-      --accent: #458588;
-      --accent-2: #689d6a;
-      --card: #f2e5bc;
-      --line: rgba(60,56,54,0.2);
-      --good: #98971a;
-      --bad: #cc241d;
-      --shadow: 0 20px 50px rgba(60,56,54,0.18);
-      --glow-1: rgba(69,133,136,0.16);
-      --glow-2: rgba(214,93,14,0.12);
-      --card-glow-1: rgba(69,133,136,0.16);
-      --card-glow-2: rgba(104,157,106,0.12);
-      --ui-surface: rgba(251,241,199,0.78);
-      --ui-surface-active: #fbf1c7;
-      --ui-border: rgba(60,56,54,0.2);
-      --ui-text: #665c54;
-      --ui-text-active: #3c3836;
-      --ui-shadow: 0 6px 14px rgba(60,56,54,0.18);
-      --ui-hover-border: rgba(69,133,136,0.45);
-      --ui-hover-shadow: 0 6px 14px rgba(69,133,136,0.16);
-      --btn-surface: #fbf1c7;
-      --box-surface: #fbf1c7;
-      --box-text: #3c3836;
-    }
-
-    body.theme-gruvbox.theme-dark {
-      --bg1: #282828;
-      --bg2: #3c3836;
-      --ink: #ebdbb2;
-      --muted: #d5c4a1;
-      --accent: #83a598;
-      --accent-2: #8ec07c;
-      --card: #32302f;
-      --line: rgba(235,219,178,0.14);
-      --good: #b8bb26;
-      --bad: #fb4934;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-      --glow-1: rgba(131,165,152,0.18);
-      --glow-2: rgba(214,93,14,0.16);
-      --card-glow-1: rgba(131,165,152,0.2);
-      --card-glow-2: rgba(214,93,14,0.18);
-      --ui-surface: rgba(50,48,47,0.9);
-      --ui-surface-active: #3c3836;
-      --ui-border: rgba(235,219,178,0.18);
-      --ui-text: #d5c4a1;
-      --ui-text-active: #ebdbb2;
-      --ui-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --ui-hover-border: rgba(131,165,152,0.55);
-      --ui-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --btn-surface: #3c3836;
-      --box-surface: #3c3836;
-      --box-text: #ebdbb2;
-    }
-
-    body.theme-tokyonight {
-      --bg1: #e1e2e7;
-      --bg2: #c4c8da;
-      --ink: #3760bf;
-      --muted: #6172b0;
-      --accent: #2e7de9;
-      --accent-2: #1abc9c;
-      --card: #d6d7dc;
-      --line: rgba(55,96,191,0.2);
-      --good: #587539;
-      --bad: #f52a65;
-      --shadow: 0 20px 50px rgba(55,96,191,0.18);
-      --glow-1: rgba(46,125,233,0.16);
-      --glow-2: rgba(245,42,101,0.12);
-      --card-glow-1: rgba(46,125,233,0.16);
-      --card-glow-2: rgba(26,188,156,0.12);
-      --ui-surface: rgba(225,226,231,0.78);
-      --ui-surface-active: #e1e2e7;
-      --ui-border: rgba(55,96,191,0.2);
-      --ui-text: #6172b0;
-      --ui-text-active: #3760bf;
-      --ui-shadow: 0 6px 14px rgba(55,96,191,0.18);
-      --ui-hover-border: rgba(46,125,233,0.45);
-      --ui-hover-shadow: 0 6px 14px rgba(46,125,233,0.16);
-      --btn-surface: #e1e2e7;
-      --box-surface: #e1e2e7;
-      --box-text: #3760bf;
-    }
-
-    body.theme-tokyonight.theme-dark {
-      --bg1: #1a1b26;
-      --bg2: #24283b;
-      --ink: #c0caf5;
-      --muted: #a9b1d6;
-      --accent: #7aa2f7;
-      --accent-2: #7dcfff;
-      --card: #2f334d;
-      --line: rgba(192,202,245,0.14);
-      --good: #9ece6a;
-      --bad: #f7768e;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-      --glow-1: rgba(122,162,247,0.18);
-      --glow-2: rgba(247,118,142,0.14);
-      --card-glow-1: rgba(122,162,247,0.2);
-      --card-glow-2: rgba(125,207,255,0.16);
-      --ui-surface: rgba(47,51,77,0.9);
-      --ui-surface-active: #3b4261;
-      --ui-border: rgba(192,202,245,0.18);
-      --ui-text: #a9b1d6;
-      --ui-text-active: #c0caf5;
-      --ui-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --ui-hover-border: rgba(122,162,247,0.55);
-      --ui-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --btn-surface: #3b4261;
-      --box-surface: #3b4261;
-      --box-text: #c0caf5;
-    }
-
-    body.theme-rosepine {
-      --bg1: #faf4ed;
-      --bg2: #f2e9e1;
-      --ink: #575279;
-      --muted: #6e6a86;
-      --accent: #286983;
-      --accent-2: #d7827e;
-      --card: #fffaf3;
-      --line: rgba(87,82,121,0.18);
-      --good: #56949f;
-      --bad: #b4637a;
-      --shadow: 0 20px 50px rgba(87,82,121,0.18);
-      --glow-1: rgba(40,105,131,0.14);
-      --glow-2: rgba(215,130,126,0.12);
-      --card-glow-1: rgba(40,105,131,0.14);
-      --card-glow-2: rgba(215,130,126,0.12);
-      --ui-surface: rgba(250,244,237,0.8);
-      --ui-surface-active: #faf4ed;
-      --ui-border: rgba(87,82,121,0.18);
-      --ui-text: #6e6a86;
-      --ui-text-active: #575279;
-      --ui-shadow: 0 6px 14px rgba(87,82,121,0.18);
-      --ui-hover-border: rgba(40,105,131,0.45);
-      --ui-hover-shadow: 0 6px 14px rgba(40,105,131,0.16);
-      --btn-surface: #faf4ed;
-      --box-surface: #faf4ed;
-      --box-text: #575279;
-    }
-
-    body.theme-rosepine.theme-dark {
-      --bg1: #232136;
-      --bg2: #2a273f;
-      --ink: #e0def4;
-      --muted: #908caa;
-      --accent: #3e8fb0;
-      --accent-2: #ea9a97;
-      --card: #393552;
-      --line: rgba(224,222,244,0.14);
-      --good: #9ccfd8;
-      --bad: #eb6f92;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-      --glow-1: rgba(62,143,176,0.18);
-      --glow-2: rgba(235,111,146,0.16);
-      --card-glow-1: rgba(62,143,176,0.2);
-      --card-glow-2: rgba(234,154,151,0.16);
-      --ui-surface: rgba(57,53,82,0.9);
-      --ui-surface-active: #4a4566;
-      --ui-border: rgba(224,222,244,0.18);
-      --ui-text: #908caa;
-      --ui-text-active: #e0def4;
-      --ui-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --ui-hover-border: rgba(62,143,176,0.55);
-      --ui-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --btn-surface: #4a4566;
-      --box-surface: #4a4566;
-      --box-text: #e0def4;
-    }
-
-    body.theme-one {
-      --bg1: #fafafa;
-      --bg2: #f0f0f0;
-      --ink: #383a42;
-      --muted: #5c6370;
-      --accent: #4078f2;
-      --accent-2: #56b6c2;
-      --card: #ffffff;
-      --line: rgba(56,58,66,0.18);
-      --good: #50a14f;
-      --bad: #e45649;
-      --shadow: 0 20px 50px rgba(56,58,66,0.18);
-      --glow-1: rgba(64,120,242,0.14);
-      --glow-2: rgba(228,86,73,0.12);
-      --card-glow-1: rgba(64,120,242,0.14);
-      --card-glow-2: rgba(86,182,194,0.12);
-      --ui-surface: rgba(250,250,250,0.8);
-      --ui-surface-active: #fafafa;
-      --ui-border: rgba(56,58,66,0.18);
-      --ui-text: #5c6370;
-      --ui-text-active: #383a42;
-      --ui-shadow: 0 6px 14px rgba(56,58,66,0.18);
-      --ui-hover-border: rgba(64,120,242,0.45);
-      --ui-hover-shadow: 0 6px 14px rgba(64,120,242,0.16);
-      --btn-surface: #fafafa;
-      --box-surface: #fafafa;
-      --box-text: #383a42;
-    }
-
-    body.theme-one.theme-dark {
-      --bg1: #282c34;
-      --bg2: #21252b;
-      --ink: #abb2bf;
-      --muted: #7f848e;
-      --accent: #61afef;
-      --accent-2: #56b6c2;
-      --card: #2c313c;
-      --line: rgba(171,178,191,0.14);
-      --good: #98c379;
-      --bad: #e06c75;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-      --glow-1: rgba(97,175,239,0.18);
-      --glow-2: rgba(224,108,117,0.16);
-      --card-glow-1: rgba(97,175,239,0.2);
-      --card-glow-2: rgba(86,182,194,0.16);
-      --ui-surface: rgba(44,49,60,0.9);
-      --ui-surface-active: #3a404c;
-      --ui-border: rgba(171,178,191,0.18);
-      --ui-text: #7f848e;
-      --ui-text-active: #abb2bf;
-      --ui-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --ui-hover-border: rgba(97,175,239,0.55);
-      --ui-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-      --btn-surface: #3a404c;
-      --box-surface: #3a404c;
-      --box-text: #abb2bf;
-    }
-
-    @font-face {
-      font-family: "PdfSimSun";
-      src: url("./fonts/BAAAAA_SimSun.ttf") format("truetype");
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "PdfSimSunExtB";
-      src: url("./fonts/HAAAAA_SimSun-ExtB.ttf") format("truetype");
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "PdfConsolas";
-      src: url("./fonts/CAAAAA_Consolas.ttf") format("truetype");
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "PdfTumanPUA";
-      src: url("./fonts/DAAAAA_TumanPUA.ttf") format("truetype");
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "PdfLXGWWenKai";
-      src: url("./fonts/AAAAAA_LXGWWenKaiGBScreenR.ttf") format("truetype");
-      font-display: swap;
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: radial-gradient(1200px 800px at 10% -10%, var(--glow-1) 0%, transparent 60%),
-                  radial-gradient(900px 900px at 110% 10%, var(--glow-2) 0%, transparent 60%),
-                  linear-gradient(160deg, var(--bg1), var(--bg2));
-      min-height: 100vh;
-      font-family: "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", "Heiti SC", sans-serif;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-    }
-
-    body.theme-dark {
-      color-scheme: dark;
-    }
-
-    body.cursor-hidden,
-    body.cursor-hidden * {
-      cursor: none !important;
-    }
-
-    .app {
-      width: min(980px, 95vw);
-      display: grid;
-      gap: 20px;
-      transform: translateY(-48px) scale(1.15);
-      transform-origin: top center;
-    }
-
-    header {
-      display: grid;
-      gap: 6px;
-    }
-    .title {
-      font-family: "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", "Heiti SC", "Noto Sans CJK SC", sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      letter-spacing: 0.05em;
-      font-weight: 500;
-      font-synthesis: none;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .top-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .side-controls {
-      display: inline-flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      transition: opacity 160ms ease, transform 160ms ease;
-    }
-
-    .learning-mode .stat-attempts,
-    .learning-mode .stat-correct,
-    .learning-mode .stat-accuracy {
-      display: none;
-    }
-
-    .stat-wrong {
-      display: none;
-    }
-
-    .practice-wrong .stat-wrong {
-      display: flex;
-    }
-
-    .practice-wrong .stat-accuracy,
-    .practice-wrong .stat-progress,
-    .practice-wrong .stat-crown {
-      display: none;
-    }
-
-    .stat-crown {
-      margin-top: 2px;
-      font-size: 18px;
-      line-height: 1;
-      color: var(--accent);
-      flex-basis: 100%;
-    }
-
-    .stat-crown.is-empty {
-      display: none;
-    }
-
-    .stat-timer {
-      flex-basis: 100%;
-      margin-top: 2px;
-    }
-
-    .stat strong {
-      color: var(--ink);
-    }
-
-    .controls {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      margin-left: auto;
-    }
-
-    .mode-switch {
-      display: inline-flex;
-      gap: 4px;
-      padding: 3px;
-      border-radius: 999px;
-      border: 1px solid var(--ui-border);
-      background: var(--ui-surface);
-    }
-
-    .mode-btn {
-      border: none;
-      background: transparent;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--ui-text);
-      cursor: pointer;
-      transition: color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
-    }
-
-    .mode-btn.is-active {
-      color: var(--ui-text-active);
-      background: var(--ui-surface-active);
-      box-shadow: var(--ui-shadow);
-    }
-
-    .size-controls {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .size-btn {
-      border: 1px solid var(--ui-border);
-      background: var(--btn-surface);
-      border-radius: 10px;
-      padding: 4px 10px;
-      font-size: 12px;
-      color: var(--ui-text-active);
-      cursor: pointer;
-      transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
-    }
-    .size-btn:hover {
-      border-color: var(--ui-hover-border);
-      box-shadow: var(--ui-hover-shadow);
-      transform: translateY(-1px);
-    }
-    .size-btn:disabled {
-      opacity: 0.5;
-      cursor: default;
-      box-shadow: none;
-      transform: none;
-    }
-
-    .palette-select select {
-      border: 1px solid var(--ui-border);
-      background: var(--btn-surface);
-      border-radius: 10px;
-      padding: 4px 10px;
-      font-size: 12px;
-      color: var(--ui-text-active);
-      cursor: pointer;
-    }
-
-
-    .footer {
-      color: var(--muted);
-      font-size: 12px;
-      display: grid;
-      gap: 8px;
-      z-index: 1;
-    }
-
-    .footer-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .footer-hint {
-      letter-spacing: 0.04em;
-    }
-
-    .footer-row--legal {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-    }
-
-    .footer-center {
-      justify-self: center;
-      text-align: center;
-    }
-
-    .footer-right {
-      justify-self: end;
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .footer-link {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: color 120ms ease, border-color 120ms ease;
-    }
-
-    .footer-link:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 26px 20px 20px;
-      min-height: 260px;
-      display: grid;
-      gap: 4px;
-      align-content: center;
-      position: relative;
-      overflow: hidden;
-      animation: floatIn 600ms ease-out;
-      justify-items: center;
-      text-align: center;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      background: conic-gradient(from 140deg, var(--card-glow-1), var(--card-glow-2), var(--card-glow-1));
-      border-radius: 50%;
-      top: -120px;
-      right: -120px;
-      filter: blur(2px);
-      z-index: 0;
-    }
-
-    body.theme-dark .card::before {
-      background: conic-gradient(from 140deg, var(--card-glow-1), var(--card-glow-2), var(--card-glow-1));
-    }
-
-    .ui-half .footer,
-    .ui-full .footer {
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .ui-half header .title,
-    .ui-full header .title,
-    .ui-half header .controls,
-    .ui-full header .controls {
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .ui-half .side-controls,
-    .ui-full .side-controls {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-4px);
-    }
-
-    .ui-half .top-meta:hover .side-controls,
-    .ui-full .top-meta:hover .side-controls {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .ui-full .card-meta {
-      display: none;
-    }
-
-    .ui-full .card {
-      background: transparent;
-      border-color: transparent;
-      box-shadow: none;
-    }
-
-    .ui-full .card::before {
-      content: none;
-    }
-
-    .card-meta {
-      position: absolute;
-      top: 14px;
-      left: 16px;
-      right: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 12px;
-      align-items: center;
-      font-size: 12px;
-      color: var(--muted);
-      z-index: 2;
-      text-align: left;
-      pointer-events: none;
-    }
-
-    .card-meta .stat,
-    .card-meta .status {
-      font-size: 12px;
-      min-height: auto;
-    }
-
-    .root-box {
-      z-index: 1;
-      display: grid;
-      gap: 8px;
-    }
-
-    .root-label {
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .root-char {
-      font-family: "PdfTumanPUA", "PdfSimSunExtB", "PdfSimSun", serif;
-      font-size: clamp(var(--root-min), var(--root-vw), var(--root-max));
-      line-height: 1;
-      padding: 0;
-    }
-
-    .input-area {
-      display: grid;
-      gap: 10px;
-      z-index: 1;
-    }
-
-    .input-label {
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .input-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 2px;
-      cursor: default;
-    }
-    .input-wrap.is-error .code-box {
-      border-color: var(--bad);
-      color: var(--bad);
-      background: rgba(182,69,43,0.06);
-      box-shadow: inset 0 0 0 1px rgba(182,69,43,0.2);
-    }
-
-    .code-input {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      outline: none;
-      background: transparent;
-      opacity: 0;
-      caret-color: transparent;
-      color: transparent;
-      cursor: default;
-      /* 16px 防止 iOS Safari 聚焦时自动放大页面 */
-      font-size: 16px;
-    }
-
-    .code-boxes {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .code-box {
-      width: var(--box-size);
-      height: var(--box-size);
-      border-radius: 8px;
-      border: 1px solid var(--ui-border);
-      background: var(--box-surface);
-      display: grid;
-      place-items: center;
-      font-family: "PdfConsolas", "Consolas", "SFMono-Regular", "Menlo", monospace;
-      font-size: var(--box-font);
-      font-weight: 600;
-      text-transform: lowercase;
-      color: var(--box-text);
-      box-shadow: inset 0 0 0 1px rgba(31,42,36,0.02);
-    }
-
-    .reveal {
-      min-height: 1em;
-      font-family: "PdfConsolas", "Consolas", "SFMono-Regular", "Menlo", monospace;
-      font-size: 22px;
-      letter-spacing: 0.18em;
-      color: var(--bad);
-      opacity: 0;
-      transform: translateY(-4px);
-      transition: opacity 140ms ease, transform 140ms ease;
-      z-index: 1;
-      line-height: 1;
-    }
-    .reveal.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .status {
-      font-size: 14px;
-      color: var(--muted);
-      min-height: 20px;
-    }
-    .status[data-state="good"] {
-      color: var(--good);
-    }
-    .status[data-state="bad"] {
-      color: var(--bad);
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px;
-      z-index: 1;
-    }
-    .meta strong {
-      color: var(--ink);
-    }
-
-    .tag {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(212,139,59,0.16);
-      color: #8a4f12;
-      border: 1px solid rgba(212,139,59,0.35);
-      font-size: 12px;
-      letter-spacing: 0.04em;
-    }
-
-    .shake {
-      animation: shake 260ms ease-in-out;
-    }
-
-    @keyframes floatIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      20% { transform: translateX(-6px); }
-      40% { transform: translateX(6px); }
-      60% { transform: translateX(-4px); }
-      80% { transform: translateX(4px); }
-      100% { transform: translateX(0); }
-    }
-
-    @media (max-width: 600px) {
-      body {
-        /* 用动态视口高度适配移动端浏览器地址栏收缩，顶部对齐避免缩放后溢出 */
-        min-height: 100vh;
-        min-height: 100dvh;
-        place-items: start center;
-        padding: 16px 12px;
-        padding-left: max(12px, env(safe-area-inset-left));
-        padding-right: max(12px, env(safe-area-inset-right));
-        padding-top: max(16px, env(safe-area-inset-top));
-        padding-bottom: max(16px, env(safe-area-inset-bottom));
-      }
-      .app {
-        width: 100%;
-        /* 移动端取消桌面端的放大与上移，避免横向溢出 */
-        transform: none;
-        gap: 16px;
-      }
-      .title { font-size: clamp(24px, 7vw, 32px); }
-      .card { padding: 20px 14px; min-height: 220px; }
-      .top-meta { gap: 10px; }
-      .side-controls { gap: 8px; }
-      .controls {
-        margin-left: 0;
-        width: 100%;
-        flex-wrap: wrap;
-      }
-      /* 移动端加大点按目标，方便手指操作 */
-      .mode-btn { padding: 8px 12px; font-size: 13px; }
-      .size-btn { padding: 8px 12px; font-size: 13px; }
-      .palette-select select { padding: 8px 12px; font-size: 13px; }
-      .code-box { width: var(--box-size-mobile); height: var(--box-size-mobile); font-size: var(--box-font-mobile); }
-      .footer-row--legal {
-        grid-template-columns: 1fr;
-        justify-items: center;
-      }
-      .footer-right {
-        justify-self: center;
-      }
-    }
-
-    /* 触屏设备没有 hover：半隐/全隐模式下控制栏改为常驻可见，避免无法呼出 */
-    @media (hover: none) {
-      .ui-half .side-controls,
-      .ui-full .side-controls {
-        opacity: 1;
-        pointer-events: auto;
-        transform: none;
-      }
-    }
-  </style>
 </head>
 <body class="theme-solarized">
   <div class="app">
@@ -1053,12 +80,21 @@
         <span class="footer-center">© 2026 虎码字根练习　备案号：待填写</span>
         <span class="footer-right">
           <a class="footer-link" href="https://www.tiger-code.com/" target="_blank" rel="noopener noreferrer">虎码</a>
-          <a class="footer-link" href="https://github.com/Wu-HZ/tiger-code-exercise" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="footer-link" href="https://github.com/tb659/tiger-code-exercise" target="_blank" rel="noopener noreferrer">GitHub</a>
         </span>
       </div>
     </footer>
+    <div class="sync-bar" id="syncBar">
+      <span class="sync-status" id="syncStatus">云同步未连接</span>
+      <button class="sync-btn" id="syncSetup" type="button">连接</button>
+      <input class="sync-id-input" id="syncIdInput" type="text" placeholder="粘贴旧设备 ID 可同步进度" style="display:none" />
+      <button class="sync-btn" id="syncIdConfirm" type="button" style="display:none">确认</button>
+      <button class="sync-btn" id="sync" type="button" style="display:none">同步</button>
+      <span class="sync-id-display" id="syncIdDisplay" style="display:none" title="点击复制"></span>
+    </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const ROOTS = [{"root": "疒", "code": "ab"}, {"root": "丁", "code": "ad"}, {"root": "㇆", "code": "ae"}, {"root": "乛", "code": "ae"}, {"root": "", "code": "ae"}, {"root": "⺄", "code": "ae"}, {"root": "㇗", "code": "ae"}, {"root": "乚", "code": "ae"}, {"root": "ヿ", "code": "ae"}, {"root": "ㄋ", "code": "ae"}, {"root": "ㄅ", "code": "ae"}, {"root": "", "code": "ae"}, {"root": "丰", "code": "af"}, {"root": "", "code": "af"}, {"root": "龶", "code": "af"}, {"root": "", "code": "af"}, {"root": "缶", "code": "af"}, {"root": "", "code": "af"}, {"root": "鬼", "code": "ag"}, {"root": "乙", "code": "ai"}, {"root": "六", "code": "al"}, {"root": "耒", "code": "al"}, {"root": "门", "code": "am"}, {"root": "皿", "code": "am"}, {"root": "片", "code": "ap"}, {"root": "爿", "code": "ap"}, {"root": "丬", "code": "ap"}, {"root": "", "code": "ap"}, {"root": "", "code": "ap"}, {"root": "", "code": "ap"}, {"root": "舌", "code": "as"}, {"root": "", "code": "as"}, {"root": "未", "code": "aw"}, {"root": "弓", "code": "bg"}, {"root": "乂", "code": "bi"}, {"root": "㐅", "code": "bi"}, {"root": "", "code": "bi"}, {"root": "彐", "code": "bj"}, {"root": "", "code": "bj"}, {"root": "", "code": "bj"}, {"root": "彑", "code": "bj"}, {"root": "", "code": "bj"}, {"root": "", "code": "bk"}, {"root": "", "code": "bk"}, {"root": "卵", "code": "bl"}, {"root": "卯", "code": "bm"}, {"root": "", "code": "bm"}, {"root": "面", "code": "bm"}, {"root": "女", "code": "bn"}, {"root": "氏", "code": "bs"}, {"root": "聿", "code": "bv"}, {"root": "肀", "code": "bv"}, {"root": "", "code": "bv"}, {"root": "", "code": "bv"}, {"root": "", "code": "bv"}, {"root": "云", "code": "by"}, {"root": "", "code": "by"}, {"root": "不", "code": "cb"}, {"root": "虫", "code": "cc"}, {"root": "", "code": "cc"}, {"root": "飞", "code": "cf"}, {"root": "古", "code": "cg"}, {"root": "火", "code": "ch"}, {"root": "", "code": "ch"}, {"root": "", "code": "ch"}, {"root": "", "code": "ch"}, {"root": "灬", "code": "ch"}, {"root": "支", "code": "ci"}, {"root": "及", "code": "cj"}, {"root": "尸", "code": "cs"}, {"root": "", "code": "cs"}, {"root": "", "code": "cs"}, {"root": "业", "code": "cy"}, {"root": "口", "code": "dk"}, {"root": "〇", "code": "dk"}, {"root": "里", "code": "dl"}, {"root": "民", "code": "dm"}, {"root": "黾", "code": "dm"}, {"root": "无", "code": "du"}, {"root": "旡", "code": "du"}, {"root": "由", "code": "dy"}, {"root": "干", "code": "eg"}, {"root": "见", "code": "ej"}, {"root": "木", "code": "em"}, {"root": "朩", "code": "em"}, {"root": "欠", "code": "eq"}, {"root": "彡", "code": "es"}, {"root": "", "code": "es"}, {"root": "𠂉", "code": "et"}, {"root": "穴", "code": "ex"}, {"root": "", "code": "ex"}, {"root": "也", "code": "ey"}, {"root": "㡀", "code": "fb"}, {"root": "辰", "code": "fc"}, {"root": "骨", "code": "fg"}, {"root": "冎", "code": "fg"}, {"root": "一", "code": "fi"}, {"root": "㇀", "code": "fi"}, {"root": "且", "code": "fq"}, {"root": "示", "code": "fs"}, {"root": "礻", "code": "fs"}, {"root": "亡", "code": "fw"}, {"root": "亾", "code": "fw"}, {"root": "歹", "code": "gd"}, {"root": "歺", "code": "gd"}, {"root": "", "code": "gd"}, {"root": "高", "code": "gg"}, {"root": "", "code": "gg"}, {"root": "", "code": "gg"}, {"root": "", "code": "gg"}, {"root": "句", "code": "gj"}, {"root": "丨", "code": "gs"}, {"root": "亅", "code": "gs"}, {"root": "士", "code": "gs"}, {"root": "土", "code": "gt"}, {"root": "韦", "code": "gw"}, {"root": "羊", "code": "gy"}, {"root": "⺷", "code": "gy"}, {"root": "⺶", "code": "gy"}, {"root": "", "code": "gy"}, {"root": "芈", "code": "gy"}, {"root": "八", "code": "hb"}, {"root": "丷", "code": "hb"}, {"root": "", "code": "hb"}, {"root": "䒑", "code": "hb"}, {"root": "", "code": "hb"}, {"root": "癶", "code": "hb"}, {"root": "", "code": "hb"}, {"root": "夫", "code": "hf"}, {"root": "谷", "code": "hg"}, {"root": "", "code": "hg"}, {"root": "子", "code": "hi"}, {"root": "夂", "code": "hi"}, {"root": "夊", "code": "hi"}, {"root": "", "code": "hi"}, {"root": "攵", "code": "hp"}, {"root": "攴", "code": "hp"}, {"root": "壴", "code": "hu"}, {"root": "", "code": "hu"}, {"root": "心", "code": "hx"}, {"root": "忄", "code": "hx"}, {"root": "⺗", "code": "hx"}, {"root": "册", "code": "ic"}, {"root": "", "code": "ic"}, {"root": "", "code": "ic"}, {"root": "丶", "code": "id"}, {"root": "㇏", "code": "id"}, {"root": "艮", "code": "ig"}, {"root": "", "code": "ig"}, {"root": "丩", "code": "ij"}, {"root": "立", "code": "il"}, {"root": "", "code": "il"}, {"root": "舟", "code": "io"}, {"root": "糸", "code": "is"}, {"root": "纟", "code": "is"}, {"root": "予", "code": "iv"}, {"root": "乡", "code": "ix"}, {"root": "幺", "code": "iy"}, {"root": "斗", "code": "jd"}, {"root": "亼", "code": "ji"}, {"root": "亽", "code": "ji"}, {"root": "仑", "code": "jl"}, {"root": "侖", "code": "jl"}, {"root": "人", "code": "jr"}, {"root": "亻", "code": "jr"}, {"root": "豕", "code": "js"}, {"root": "", "code": "js"}, {"root": "入", "code": "ju"}, {"root": "寸", "code": "kc"}, {"root": "亥", "code": "kh"}, {"root": "㠯", "code": "ki"}, {"root": "九", "code": "kj"}, {"root": "母", "code": "km"}, {"root": "水", "code": "ks"}, {"root": "氵", "code": "ks"}, {"root": "⺍", "code": "ks"}, {"root": "", "code": "ks"}, {"root": "氺", "code": "ks"}, {"root": "", "code": "ks"}, {"root": "", "code": "ks"}, {"root": "", "code": "ks"}, {"root": "厶", "code": "ks"}, {"root": "龴", "code": "ks"}, {"root": "", "code": "ks"}, {"root": "毋", "code": "ku"}, {"root": "毌", "code": "ku"}, {"root": "艹", "code": "lc"}, {"root": "廾", "code": "lc"}, {"root": "丌", "code": "lc"}, {"root": "艸", "code": "lc"}, {"root": "齿", "code": "lc"}, {"root": "而", "code": "le"}, {"root": "方", "code": "lf"}, {"root": "廿", "code": "ln"}, {"root": "龷", "code": "ln"}, {"root": "千", "code": "lq"}, {"root": "生", "code": "ls"}, {"root": "卅", "code": "ls"}, {"root": "", "code": "ls"}, {"root": "夕", "code": "lx"}, {"root": "卌", "code": "lx"}, {"root": "牙", "code": "ly"}, {"root": "巴", "code": "mb"}, {"root": "大", "code": "md"}, {"root": "二", "code": "me"}, {"root": "光", "code": "mg"}, {"root": "", "code": "mg"}, {"root": "户", "code": "mh"}, {"root": "", "code": "mh"}, {"root": "豸", "code": "mi"}, {"root": "冂", "code": "mk"}, {"root": "凵", "code": "mk"}, {"root": "⺆", "code": "mk"}, {"root": "", "code": "mk"}, {"root": "", "code": "mk"}, {"root": "两", "code": "ml"}, {"root": "犬", "code": "mq"}, {"root": "犭", "code": "mq"}, {"root": "石", "code": "ms"}, {"root": "甫", "code": "nf"}, {"root": "鬲", "code": "ng"}, {"root": "黄", "code": "nh"}, {"root": "勹", "code": "nk"}, {"root": "匚", "code": "nk"}, {"root": "", "code": "nk"}, {"root": "コ", "code": "nk"}, {"root": "马", "code": "nm"}, {"root": "十", "code": "ns"}, {"root": "𠂇", "code": "ns"}, {"root": "", "code": "ns"}, {"root": "戊", "code": "nu"}, {"root": "", "code": "nu"}, {"root": "戉", "code": "nu"}, {"root": "王", "code": "nw"}, {"root": "辛", "code": "nx"}, {"root": "贝", "code": "ob"}, {"root": "川", "code": "oc"}, {"root": "", "code": "oc"}, {"root": "", "code": "oc"}, {"root": "巛", "code": "oc"}, {"root": "巜", "code": "oc"}, {"root": "自", "code": "oi"}, {"root": "几", "code": "oj"}, {"root": "⺇", "code": "oj"}, {"root": "", "code": "oj"}, {"root": "日", "code": "or"}, {"root": "曰", "code": "or"}, {"root": "⺜", "code": "or"}, {"root": "", "code": "or"}, {"root": "矢", "code": "os"}, {"root": "尤", "code": "oy"}, {"root": "尢", "code": "oy"}, {"root": "长", "code": "pc"}, {"root": "镸", "code": "pc"}, {"root": "刀", "code": "pd"}, {"root": "〢", "code": "pd"}, {"root": "刂", "code": "pd"}, {"root": "リ", "code": "pd"}, {"root": "", "code": "pd"}, {"root": "", "code": "pd"}, {"root": "", "code": "pd"}, {"root": "", "code": "pd"}, {"root": "儿", "code": "pe"}, {"root": "", "code": "pe"}, {"root": "", "code": "pe"}, {"root": "", "code": "pe"}, {"root": "戈", "code": "pg"}, {"root": "", "code": "pg"}, {"root": "黑", "code": "ph"}, {"root": "", "code": "ph"}, {"root": "弋", "code": "pi"}, {"root": "臼", "code": "pj"}, {"root": "", "code": "pj"}, {"root": "米", "code": "pm"}, {"root": "", "code": "pm"}, {"root": "鼠", "code": "ps"}, {"root": "", "code": "ps"}, {"root": "足", "code": "pu"}, {"root": "⻊", "code": "pu"}, {"root": "行", "code": "px"}, {"root": "走", "code": "pz"}, {"root": "臣", "code": "qc"}, {"root": "", "code": "qc"}, {"root": "耳", "code": "qe"}, {"root": "井", "code": "qj"}, {"root": "", "code": "qj"}, {"root": "老", "code": "ql"}, {"root": "耂", "code": "ql"}, {"root": "目", "code": "qm"}, {"root": "", "code": "qm"}, {"root": "牛", "code": "qn"}, {"root": "牜", "code": "qn"}, {"root": "⺧", "code": "qn"}, {"root": "齐", "code": "qq"}, {"root": "食", "code": "qs"}, {"root": "饣", "code": "qs"}, {"root": "田", "code": "qt"}, {"root": "非", "code": "rf"}, {"root": "之", "code": "ri"}, {"root": "巾", "code": "rj"}, {"root": "囗（框）", "code": "rk"}, {"root": "了", "code": "rl"}, {"root": "皮", "code": "rp"}, {"root": "七", "code": "rq"}, {"root": "", "code": "rq"}, {"root": "", "code": "rq"}, {"root": "殳", "code": "rs"}, {"root": "竹", "code": "ru"}, {"root": "⺮", "code": "ru"}, {"root": "", "code": "ru"}, {"root": "瓦", "code": "rw"}, {"root": "又", "code": "ry"}, {"root": "ス", "code": "ry"}, {"root": "屮", "code": "sc"}, {"root": "", "code": "sc"}, {"root": "", "code": "sc"}, {"root": "", "code": "sc"}, {"root": "", "code": "sc"}, {"root": "各", "code": "sg"}, {"root": "止", "code": "si"}, {"root": "", "code": "si"}, {"root": "", "code": "si"}, {"root": "龰", "code": "si"}, {"root": "甲", "code": "sj"}, {"root": "力", "code": "sl"}, {"root": "尚", "code": "ss"}, {"root": "", "code": "ss"}, {"root": "龸", "code": "ss"}, {"root": "言", "code": "sy"}, {"root": "讠", "code": "sy"}, {"root": "阝", "code": "te"}, {"root": "弗", "code": "tf"}, {"root": "𢎨", "code": "tf"}, {"root": "𠂔", "code": "tf"}, {"root": "革", "code": "tg"}, {"root": "衣", "code": "ti"}, {"root": "衤", "code": "ti"}, {"root": "", "code": "ti"}, {"root": "", "code": "ti"}, {"root": "", "code": "ti"}, {"root": "斤", "code": "tj"}, {"root": "", "code": "tj"}, {"root": "龙", "code": "tl"}, {"root": "丿", "code": "tp"}, {"root": "㇒", "code": "tp"}, {"root": "疋", "code": "ts"}, {"root": "𤴓", "code": "ts"}, {"root": "⺪", "code": "ts"}, {"root": "三", "code": "ts"}, {"root": "雨", "code": "tv"}, {"root": "⻗", "code": "tv"}, {"root": "用", "code": "ty"}, {"root": "", "code": "ty"}, {"root": "白", "code": "ub"}, {"root": "辶", "code": "uc"}, {"root": "工", "code": "ug"}, {"root": "隹", "code": "ui"}, {"root": "手", "code": "us"}, {"root": "扌", "code": "us"}, {"root": "龵", "code": "us"}, {"root": "", "code": "us"}, {"root": "", "code": "us"}, {"root": "", "code": "us"}, {"root": "", "code": "us"}, {"root": "廴", "code": "uy"}, {"root": "匕", "code": "vb"}, {"root": "", "code": "vb"}, {"root": "", "code": "vb"}, {"root": "", "code": "vb"}, {"root": "已", "code": "vi"}, {"root": "己", "code": "vj"}, {"root": "", "code": "vj"}, {"root": "㐄", "code": "vk"}, {"root": "", "code": "vk"}, {"root": "毛", "code": "vm"}, {"root": "乃", "code": "vn"}, {"root": "", "code": "vn"}, {"root": "气", "code": "vq"}, {"root": "禸", "code": "vr"}, {"root": "⽱", "code": "vr"}, {"root": "山", "code": "vs"}, {"root": "巳", "code": "vs"}, {"root": "文", "code": "vw"}, {"root": "西", "code": "vx"}, {"root": "覀", "code": "vx"}, {"root": "月", "code": "vy"}, {"root": "⺝", "code": "vy"}, {"root": "", "code": "vy"}, {"root": "", "code": "vy"}, {"root": "", "code": "vy"}, {"root": "乍", "code": "wa"}, {"root": "冫", "code": "wb"}, {"root": "", "code": "wb"}, {"root": "⺀", "code": "wb"}, {"root": "彳", "code": "wc"}, {"root": "亍", "code": "wc"}, {"root": "宀", "code": "wg"}, {"root": "冖", "code": "wg"}, {"root": "龟", "code": "wg"}, {"root": "兔", "code": "wt"}, {"root": "", "code": "wt"}, {"root": "五", "code": "wu"}, {"root": "鱼", "code": "wv"}, {"root": "𩵋", "code": "wv"}, {"root": "象", "code": "wx"}, {"root": "页", "code": "wy"}, {"root": "頁", "code": "wy"}, {"root": "", "code": "wy"}, {"root": "", "code": "wy"}, {"root": "厂", "code": "xc"}, {"root": "⺁", "code": "xc"}, {"root": "⺈", "code": "xd"}, {"root": "", "code": "xd"}, {"root": "", "code": "xd"}, {"root": "广", "code": "xg"}, {"root": "禾", "code": "xh"}, {"root": "", "code": "xh"}, {"root": "鹿", "code": "xl"}, {"root": "鸟", "code": "xn"}, {"root": "", "code": "xn"}, {"root": "束", "code": "xs"}, {"root": "乌", "code": "xu"}, {"root": "音", "code": "xy"}, {"root": "爪", "code": "ya"}, {"root": "爫", "code": "ya"}, {"root": "卜", "code": "yb"}, {"root": "⺊", "code": "yb"}, {"root": "车", "code": "yc"}, {"root": "", "code": "yc"}, {"root": "車", "code": "yc"}, {"root": "瓜", "code": "yg"}, {"root": "至", "code": "yi"}, {"root": "曲", "code": "yq"}, {"root": "四", "code": "ys"}, {"root": "罒", "code": "ys"}, {"root": "小", "code": "yx"}, {"root": "⺌", "code": "yx"}, {"root": "", "code": "yx"}, {"root": "𡭔", "code": "yx"}, {"root": "酉", "code": "yy"}, {"root": "豆", "code": "zd"}, {"root": "甘", "code": "zg"}, {"root": "", "code": "zg"}, {"root": "虎", "code": "zh"}, {"root": "虍", "code": "zh"}, {"root": "金", "code": "zj"}, {"root": "钅", "code": "zj"}, {"root": "", "code": "zj"}, {"root": "卩", "code": "zj"}, {"root": "ㄗ", "code": "zj"}, {"root": "⺋", "code": "zj"}, {"root": "", "code": "zj"}, {"root": "可", "code": "zk"}, {"root": "", "code": "zk"}, {"root": "麻", "code": "zm"}, {"root": "身", "code": "zs"}, {"root": "㐆", "code": "zs"}, {"root": "亠", "code": "zt"}, {"root": "羽", "code": "zv"}, {"root": "习", "code": "zx"}];
 
@@ -1067,6 +103,7 @@
     const ROOTS_MERGED = ROOTS_MERGED_RAW.map(normalizeRootItem);
     const { mergedToVariants, variantToMerged } = buildRootMappings();
 
+    // ── DOM 元素引用 ──────────────────────────────────────────────
     const rootChar = document.getElementById('rootChar');
     const codeInput = document.getElementById('codeInput');
     const inputWrap = document.getElementById('inputWrap');
@@ -1096,44 +133,47 @@
     const sizeDownBtn = document.getElementById('sizeDown');
     const sizeUpBtn = document.getElementById('sizeUp');
 
-    let order = [];
-    let currentIndex = 0;
-    let currentItemIndex = 0;
-    let currentIsReview = false;
-    let total = 0;
-    let correct = 0;
-    let locked = false;
-    let buffer = '';
-    let mode = 'all';
-    let activeRoots = ROOTS_VARIANTS;
-    let practiceMode = 'normal';
-    let reviewEnabled = practiceMode !== 'review';
-    let learningMode = practiceMode === 'learning';
-    let uiMode = 'show';
-    let schemeMode = 'light';
-    let paletteMode = 'auto';
-    let activePalette = 'one';
-    let autoPaletteBaseIndex = 0;
-    let reviewQueue = [];
-    const reviewState = new Map();
-    const completedSet = new Set();
-    const wrongByMode = { all: new Set(), merged: new Set() };
-    let wrongSet = wrongByMode.all;
-    const wrongProgressByMode = { all: new Set(), merged: new Set() };
-    let wrongProgressSet = wrongProgressByMode.all;
-    const roundsByMode = { all: 0, merged: 0 };
-    const TIMER_IDLE_MS = 5000;
-    const TIMER_TICK_MS = 250;
-    let timerRunning = false;
-    let timerStart = 0;
-    let timerElapsed = 0;
-    let lastKeyAt = 0;
-    let timerInterval = null;
-    const learningSeenByMode = { all: new Set(), merged: new Set() };
-    let learningSeenSet = learningSeenByMode.all;
-    const REVIEW_STEPS = [2, 5, 10];
-    let turn = 0;
+    // ── 练习状态变量 ──────────────────────────────────────────────
+    let order = [];                        // 打乱后的练习序列（索引数组）
+    let currentIndex = 0;                  // order 数组中的当前位置
+    let currentItemIndex = 0;              // 当前正在显示的部首索引
+    let currentIsReview = false;           // 当前项目是否为间隔复习
+    let total = 0;                         // 总回答次数
+    let correct = 0;                       // 正确回答次数
+    let locked = false;                    // 动画期间锁定输入
+    let buffer = '';                       // 当前 2 字符输入缓冲
+    let mode = 'all';                      // 'all'（全变体）或 'merged'（合并）部首模式
+    let activeRoots = ROOTS_VARIANTS;      // 当前激活的部首数据源引用
+    let practiceMode = 'normal';           // 5 种练习模式之一
+    let reviewEnabled = practiceMode !== 'review'; // 间隔重复开关
+    let learningMode = practiceMode === 'learning'; // 学习模式开关
+    let uiMode = 'show';                   // UI 可见性级别
+    let schemeMode = 'light';              // 亮色/暗色主题
+    let paletteMode = 'auto';              // 配色方案选择模式
+    let activePalette = 'one';             // 当前激活的配色方案名称
+    let autoPaletteBaseIndex = 0;          // 自动配色轮换基准索引
+    let reviewQueue = [];                  // 间隔重复复习队列
+    const reviewState = new Map();         // 每个部首的复习阶段 Map
+    const completedSet = new Set();        // 已掌握部首集合
+    const wrongByMode = { all: new Set(), merged: new Set() }; // 各模式错题集合
+    let wrongSet = wrongByMode.all;        // 当前模式的错题集合引用
+    const wrongProgressByMode = { all: new Set(), merged: new Set() }; // 各模式错题纠正进度
+    let wrongProgressSet = wrongProgressByMode.all; // 当前模式的错题进度引用
+    const roundsByMode = { all: 0, merged: 0 }; // 各模式已完成轮数
+    const TIMER_IDLE_MS = 5000;            // 空闲超时：5 秒无操作暂停计时
+    const TIMER_TICK_MS = 250;             // 计时器更新间隔：250 毫秒
+    let timerRunning = false;              // 计时器是否正在运行
+    let timerStart = 0;                    // 计时器开始时间戳
+    let timerElapsed = 0;                  // 已累计的计时时间（毫秒）
+    let lastKeyAt = 0;                     // 上次按键时间戳
+    let timerInterval = null;              // 计时器 setInterval ID
+    const learningSeenByMode = { all: new Set(), merged: new Set() }; // 各模式学习已见记录
+    let learningSeenSet = learningSeenByMode.all; // 当前模式的已见集合引用
+    const REVIEW_STEPS = [2, 5, 10];       // 间隔重复间隔步长
+    let turn = 0;                          // 全局轮次计数器
 
+    // ── 工具函数 ─────────────────────────────────────────────────
+    // Fisher-Yates 洗牌算法
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -1142,20 +182,24 @@
       return array;
     }
 
+    // 从激活的部首创建打乱后的练习顺序
     function buildOrder() {
       order = shuffle([...activeRoots.keys()]);
       currentIndex = 0;
     }
 
+    // 重置所有间隔重复状态
     function clearReviewState() {
       reviewQueue = [];
       reviewState.clear();
     }
 
+    // 从复习队列中移除指定项目
     function removeFromReviewQueue(idx) {
       reviewQueue = reviewQueue.filter((entry) => entry.idx !== idx);
     }
 
+    // 安排一个项目在将来进行复习
     function scheduleReview(idx, stepIndex) {
       const step = REVIEW_STEPS[stepIndex];
       if (step === undefined) return;
@@ -1164,6 +208,7 @@
       reviewQueue.push({ idx, dueAt });
     }
 
+    // 查找并返回最早到期的复习项目
     function getDueReview() {
       if (!reviewQueue.length) return null;
       let bestIndex = -1;
@@ -1180,6 +225,7 @@
       return entry.idx;
     }
 
+    // 跳过已完成/正在复习的项目，前进到下一个新项目
     function advanceToNextNew() {
       while (currentIndex < order.length) {
         const idx = order[currentIndex];
@@ -1190,6 +236,7 @@
       }
     }
 
+    // 核心调度：选择下一个要显示的项目
     function pickNextItem() {
       if (practiceMode === 'wrong') {
         if (!wrongSet.size) {
@@ -1255,7 +302,8 @@
           completedSet.clear();
           clearReviewState();
         }
-        buildOrder();
+    // 初始构建练习顺序并渲染第一题
+    buildOrder();
         advanceToNextNew();
       }
 
@@ -1267,6 +315,7 @@
       currentIsReview = false;
     }
 
+    // UI 尺寸预设数组（7 级）
     const sizePresets = [
       { rootMin: 18, rootVw: '2.6vw', rootMax: 34, box: 24, boxFont: 14, boxMobile: 20, boxMobileFont: 12 },
       { rootMin: 20, rootVw: '2.9vw', rootMax: 38, box: 27, boxFont: 15, boxMobile: 23, boxMobileFont: 13 },
@@ -1278,6 +327,7 @@
     ];
     let sizeIndex = 3;
 
+    // 应用当前尺寸预设到 CSS 变量
     function applySize() {
       const preset = sizePresets[sizeIndex];
       const rootStyle = document.documentElement.style;
@@ -1292,18 +342,22 @@
       if (sizeUpBtn) sizeUpBtn.disabled = sizeIndex === sizePresets.length - 1;
     }
 
+    // 规范化部首标签格式（括号统一为全角）
     function normalizeRootLabel(label) {
       return label.replace(/囗\(框\)/g, '囗（框）');
     }
 
+    // 规范化一个部首数据项
     function normalizeRootItem(item) {
       return { root: normalizeRootLabel(item.root), code: item.code };
     }
 
+    // 移除空白字符用于匹配
     function normalizeMatch(value) {
       return value.replace(/\s+/g, '');
     }
 
+    // 构建合并部首↔变体部首的双向索引映射
     function buildRootMappings() {
       const mergedToVariants = Array.from({ length: ROOTS_MERGED.length }, () => []);
       const variantToMerged = Array(ROOTS_VARIANTS.length).fill(-1);
@@ -1328,14 +382,18 @@
       return { mergedToVariants, variantToMerged };
     }
 
+    // ── 进度映射函数 ─────────────────────────────────────────────
+    // 返回已完成的索引数组
     function getCompletedIndices() {
       return Array.from(completedSet);
     }
 
+    // 返回错题的索引数组
     function getWrongIndices() {
       return Array.from(wrongSet);
     }
 
+    // 将变体部首的完成状态映射到合并部首索引
     function mapCompletedToMerged(completedVariants) {
       const mergedSet = new Set();
       completedVariants.forEach((vIdx) => {
@@ -1345,6 +403,7 @@
       return mergedSet;
     }
 
+    // 将合并部首的完成状态映射到变体部首索引
     function mapCompletedToVariants(completedMerged) {
       const variantSet = new Set();
       completedMerged.forEach((mIdx) => {
@@ -1354,6 +413,7 @@
       return variantSet;
     }
 
+    // 重建练习顺序，已完成项目排在前面
     function buildOrderWithCompleted(completedSet) {
       const totalItems = activeRoots.length;
       const completed = [];
@@ -1371,10 +431,13 @@
       currentIndex = completed.length;
     }
 
+    // ── 输入处理与渲染 ───────────────────────────────────────────
+    // 转小写，去除非字母字符，限制为 2 个字符
     function normalizeInput(value) {
       return value.toLowerCase().replace(/[^a-z]/g, '').slice(0, 2);
     }
 
+    // 更新两个代码框显示元素
     function renderBoxes(value) {
       const padded = value.padEnd(2, '');
       boxEls.forEach((box, idx) => {
@@ -1383,26 +446,31 @@
       });
     }
 
+    // 显示正确答案代码
     function showReveal(code) {
       revealEl.textContent = code;
       revealEl.classList.add('is-show');
     }
 
+    // 隐藏已揭示的答案
     function hideReveal() {
       revealEl.textContent = '';
       revealEl.classList.remove('is-show');
     }
 
+    // 在学习模式中标记部首已见（首次返回 true）
     function registerSeen(idx) {
       if (learningSeenSet.has(idx)) return false;
       learningSeenSet.add(idx);
       return true;
     }
 
+    // 为首次见到的部首显示代码提示
     function applyLearningIntro(item) {
       showReveal(item.code);
     }
 
+    // 学习模式处理：首次见到时显示提示
     function handleLearningIntro(item) {
       if (!learningMode) return;
       const firstSeen = registerSeen(currentItemIndex);
@@ -1411,11 +479,13 @@
       applyLearningIntro(item);
     }
 
+    // 跟随模式处理：始终显示代码
     function handleFollowIntro(item) {
       if (practiceMode !== 'follow') return;
       showReveal(item.code);
     }
 
+    // 无错题时显示空状态
     function renderWrongEmpty() {
       rootChar.textContent = '—';
       inputWrap.classList.remove('is-error');
@@ -1424,6 +494,8 @@
       locked = true;
     }
 
+    // ── 核心状态变更 ─────────────────────────────────────────────
+    // 将部首标记为错误，重置复习状态
     function markWrong(rootIndex) {
       wrongSet.add(rootIndex);
       wrongProgressSet.delete(rootIndex);
@@ -1435,8 +507,10 @@
         removeFromReviewQueue(rootIndex);
       }
       updateProgress();
+      scheduleSync();
     }
 
+    // 将部首标记为正确，推进复习阶段
     function markCorrect(rootIndex) {
       let mastered = false;
       if (!reviewEnabled) {
@@ -1464,8 +538,10 @@
       if (mastered && wrongSet.has(rootIndex)) {
         wrongProgressSet.add(rootIndex);
       }
+      scheduleSync();
     }
 
+    // 为错误答案应用视觉反馈
     function applyWrong(item) {
       updateStats();
       inputWrap.classList.add('is-error');
@@ -1477,6 +553,7 @@
       codeInput.focus();
     }
 
+    // 手动将当前项目标记为错误（空格键触发）
     function triggerWrong() {
       if (locked) return;
       const item = activeRoots[currentItemIndex];
@@ -1487,12 +564,15 @@
     }
 
 
+    // ── 输入缓冲与状态更新 ───────────────────────────────────────
+    // 重置输入缓冲和代码框
     function clearBuffer() {
       buffer = '';
       codeInput.value = '';
       renderBoxes('');
     }
 
+    // 更新缓冲区，输入满 2 个字符时自动提交
     function setBuffer(value) {
       if (locked) return;
       buffer = normalizeInput(value);
@@ -1506,12 +586,14 @@
       }
     }
 
+    // 更新准确率/进度显示
     function updateStats() {
       if (progressEl) progressEl.textContent = String(total);
       if (correctEl) correctEl.textContent = String(correct);
       if (accuracyEl) accuracyEl.textContent = total ? `${Math.round((correct / total) * 100)}%` : '0%';
     }
 
+    // 同步全变体/合并按钮的激活状态
     function updateModeButtons() {
       const isMerged = mode === 'merged';
       if (modeAllBtn) {
@@ -1524,6 +606,7 @@
       }
     }
 
+    // 同步练习模式按钮的激活状态
     function updatePracticeButtons() {
       if (reviewOffBtn) {
         const active = practiceMode === 'normal';
@@ -1552,6 +635,7 @@
       }
     }
 
+    // 应用练习模式状态到 body 类名
     function syncPracticeState(nextMode) {
       const nextReviewEnabled = nextMode === 'normal' || nextMode === 'learning' || nextMode === 'wrong';
       const nextLearningMode = nextMode === 'learning';
@@ -1566,6 +650,7 @@
       document.body.classList.toggle('learning-mode', learningMode);
     }
 
+    // 切换练习模式并重新渲染
     function setPracticeMode(nextMode) {
       if (nextMode === practiceMode) return;
       practiceMode = nextMode;
@@ -1577,8 +662,11 @@
       } else {
         renderCurrent();
       }
+      scheduleSync();
     }
 
+    // ── UI 设置函数 ──────────────────────────────────────────────
+    // 同步 UI 可见性按钮状态
     function updateUiButtons() {
       if (uiShowBtn) {
         const active = uiMode === 'show';
@@ -1597,6 +685,7 @@
       }
     }
 
+    // 应用 UI 可见性模式（显示/半隐藏/全隐藏）
     function setUiMode(nextMode) {
       uiMode = nextMode;
       document.body.classList.toggle('ui-half', uiMode === 'half');
@@ -1604,6 +693,7 @@
       updateUiButtons();
     }
 
+    // 同步亮色/暗色按钮状态
     function updateThemeButtons() {
       if (themeLightBtn) {
         const active = schemeMode === 'light';
@@ -1617,25 +707,30 @@
       }
     }
 
+    // 可用配色方案名称列表
     const paletteOptions = ['one', 'solarized', 'nord', 'catppuccin', 'gruvbox', 'tokyonight', 'rosepine'];
 
+    // 同步配色方案下拉菜单值
     function updatePaletteSelect() {
       if (!paletteSelect) return;
       paletteSelect.value = paletteMode;
     }
 
+    // 应用亮色/暗色主题到 body
     function setSchemeMode(nextMode) {
       schemeMode = nextMode;
       document.body.classList.toggle('theme-dark', schemeMode === 'dark');
       updateThemeButtons();
     }
 
+    // 根据完成数量计算自动配色方案
     function getAutoPalette() {
       const bucket = Math.floor((completedSet.size || 0) / 100);
       const index = (autoPaletteBaseIndex + bucket) % paletteOptions.length;
       return paletteOptions[index];
     }
 
+    // 处理完成一整轮时的逻辑（增加皇冠数，轮换配色）
     function handleProgressReset() {
       if (practiceMode !== 'wrong') {
         roundsByMode[mode] = (roundsByMode[mode] || 0) + 1;
@@ -1643,8 +738,10 @@
       if (paletteMode !== 'auto') return;
       const currentIndex = paletteOptions.indexOf(activePalette);
       autoPaletteBaseIndex = currentIndex >= 0 ? currentIndex : 0;
+      scheduleSync();
     }
 
+    // 应用指定名称的配色方案
     function applyPalette(name) {
       activePalette = name;
       paletteOptions.forEach((palette) => {
@@ -1652,6 +749,7 @@
       });
     }
 
+    // 切换配色方案模式（自动或手动）
     function setPaletteMode(nextMode) {
       paletteMode = nextMode;
       if (paletteMode === 'auto') {
@@ -1665,6 +763,7 @@
       updatePaletteSelect();
     }
 
+    // 自动模式下自动切换配色方案
     function maybeAutoPalette() {
       if (paletteMode !== 'auto') return;
       const target = getAutoPalette();
@@ -1674,6 +773,7 @@
       updatePaletteSelect();
     }
 
+    // 在全变体/合并部首模式之间切换
     function setMode(nextMode) {
       if (nextMode === mode) return;
       const completed = getCompletedIndices();
@@ -1694,8 +794,10 @@
       buildOrderWithCompleted(targetCompleted);
       renderQuestion();
       updateModeButtons();
+      scheduleSync();
     }
 
+    // 更新进度显示（X/Y、错题进度、皇冠）
     function updateProgress() {
       const totalItems = activeRoots.length || 0;
       const current = totalItems ? completedSet.size : 0;
@@ -1724,6 +826,8 @@
       maybeAutoPalette();
     }
 
+    // ── 计时器 ───────────────────────────────────────────────────
+    // 将毫秒格式化为 MM:SS 或 H:MM:SS
     function formatTimer(ms) {
       const totalSeconds = Math.floor(ms / 1000);
       const hours = Math.floor(totalSeconds / 3600);
@@ -1735,12 +839,14 @@
       return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     }
 
+    // 刷新计时器显示元素
     function updateTimerDisplay() {
       if (!timerEl) return;
       const total = timerElapsed + (timerRunning ? Date.now() - timerStart : 0);
       timerEl.textContent = formatTimer(total);
     }
 
+    // 暂停计时器，累计已用时间
     function pauseTimer() {
       if (!timerRunning) return;
       timerElapsed += Date.now() - timerStart;
@@ -1748,6 +854,7 @@
       timerStart = 0;
     }
 
+    // 记录按键时间，空闲时启动计时器
     function registerActivity() {
       const now = Date.now();
       lastKeyAt = now;
@@ -1757,6 +864,7 @@
       }
     }
 
+    // 每 250ms 调用一次，空闲 5 秒后自动暂停
     function tickTimer() {
       if (timerRunning && Date.now() - lastKeyAt >= TIMER_IDLE_MS) {
         pauseTimer();
@@ -1764,17 +872,21 @@
       updateTimerDisplay();
     }
 
+    // ── UI 辅助函数 ──────────────────────────────────────────────
+    // 简短显示一条状态消息，带状态颜色
     function flashStatus(text, state) {
       if (!statusEl) return;
       statusEl.textContent = text;
       statusEl.dataset.state = state;
     }
 
+    // 显示"等待输入"空闲消息
     function setIdleStatus() {
       if (!statusEl) return;
       flashStatus('等待输入', 'idle');
     }
 
+    // 对输入区域触发抖动动画
     function shakeInput() {
       inputWrap.classList.remove('shake');
       void inputWrap.offsetWidth;
@@ -1782,6 +894,8 @@
       setTimeout(() => inputWrap.classList.remove('shake'), 260);
     }
 
+    // ── 渲染与答题 ──────────────────────────────────────────────
+    // 渲染当前部首并重置输入状态
     function renderCurrent(options = {}) {
       if (practiceMode === 'wrong' && wrongSet.size === 0) {
         renderWrongEmpty();
@@ -1802,12 +916,14 @@
       codeInput.focus();
     }
 
+    // 选择下一个项目并渲染
     function renderQuestion(options = {}) {
       pickNextItem();
       renderCurrent(options);
       turn += 1;
     }
 
+    // 验证并检查用户答案
     function submitAnswer(value) {
       if (locked) return;
       const item = activeRoots[currentItemIndex];
@@ -1837,10 +953,13 @@
       }
     }
 
+    // ── 事件监听 ─────────────────────────────────────────────────
+    // 处理文本输入变化
     codeInput.addEventListener('input', (e) => {
       setBuffer(e.target.value);
     });
 
+    // 处理输入框按键（回车提交，空格标记错误）
     codeInput.addEventListener('keydown', (e) => {
       registerActivity();
       if (e.key === 'Enter') {
@@ -1853,6 +972,7 @@
       }
     });
 
+    // 全局键盘快捷键（输入框未聚焦时）
     document.addEventListener('keydown', (e) => {
       if (document.activeElement === codeInput) return;
       registerActivity();
@@ -1878,15 +998,18 @@
       }
     });
 
+    // 点击卡片聚焦输入框
     document.getElementById('card').addEventListener('click', () => {
       codeInput.focus();
     });
 
+    // 绑定模式切换按钮
     if (modeAllBtn && modeMergedBtn) {
       modeAllBtn.addEventListener('click', () => setMode('all'));
       modeMergedBtn.addEventListener('click', () => setMode('merged'));
     }
 
+    // 绑定练习模式按钮
     if (reviewOffBtn && reviewOnBtn && reviewLearnBtn && reviewFollowBtn && reviewWrongBtn) {
       reviewOffBtn.addEventListener('click', () => setPracticeMode('normal'));
       reviewOnBtn.addEventListener('click', () => setPracticeMode('review'));
@@ -1895,21 +1018,25 @@
       reviewWrongBtn.addEventListener('click', () => setPracticeMode('wrong'));
     }
 
+    // 绑定 UI 可见性按钮
     if (uiShowBtn && uiHalfBtn && uiFullBtn) {
       uiShowBtn.addEventListener('click', () => setUiMode('show'));
       uiHalfBtn.addEventListener('click', () => setUiMode('half'));
       uiFullBtn.addEventListener('click', () => setUiMode('full'));
     }
 
+    // 绑定亮色/暗色切换按钮
     if (themeLightBtn && themeDarkBtn) {
       themeLightBtn.addEventListener('click', () => setSchemeMode('light'));
       themeDarkBtn.addEventListener('click', () => setSchemeMode('dark'));
     }
 
+    // 绑定配色方案下拉菜单
     if (paletteSelect) {
       paletteSelect.addEventListener('change', (e) => setPaletteMode(e.target.value));
     }
 
+    // 绑定字体大小增减按钮
     if (sizeDownBtn && sizeUpBtn) {
       sizeDownBtn.addEventListener('click', () => {
         sizeIndex = Math.max(0, sizeIndex - 1);
@@ -1920,6 +1047,8 @@
         applySize();
       });
     }
+    // ── 初始化 ───────────────────────────────────────────────────
+    // 应用默认字体大小
     applySize();
     updateModeButtons();
     syncPracticeState(practiceMode);
@@ -1928,6 +1057,7 @@
     setPaletteMode(paletteMode);
     setSchemeMode(schemeMode);
 
+    // ── 光标自动隐藏 ─────────────────────────────────────────────
     const CURSOR_HIDE_DELAY = 1500;
     let cursorTimer = null;
     let cursorHidden = false;
@@ -1957,8 +1087,268 @@
     updateTimerDisplay();
     timerInterval = setInterval(tickTimer, TIMER_TICK_MS);
 
+    // 初始构建练习顺序并渲染第一题
     buildOrder();
     renderQuestion();
+
+    // ═══════════════════════════════════════════════════════════════
+    //  云端同步模块 (Supabase)
+    //  功能：将练习进度保存到 Supabase 云端数据库，实现跨设备同步。
+    //  流程：本地状态变化 → 节流60秒 → 推送到云端
+    //        点击「同步」→ 先推再拉 → 本地与云端保持一致
+    // ═══════════════════════════════════════════════════════════════
+
+    // ── Supabase 连接配置 ────────────────────────────────────────
+    // 从 Supabase Dashboard → Settings → API 中获取
+    const SUPABASE_URL = 'https://yolswumhhicjpobwdpev.supabase.co';       // 项目地址
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlvbHN3dW1oaGljanBvYndkcGV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4NjE1ODgsImV4cCI6MjEwMDQzNzU4OH0.FgZt_I0m-Kc4zaEgnIxGWtoHdeSl-tHHBvvKr0Apcmk'; // 匿名访问密钥
+
+    // ── 同步状态变量 ──────────────────────────────────────────────
+    let sb = null;                     // Supabase 客户端实例，初始化后不再为 null
+    let userId = localStorage.getItem('tc_uid');  // 用户唯一标识，持久化在 localStorage 中
+    let syncTimer = null;              // 节流定时器 ID，用于取消和重置
+    const SYNC_MS = 60000;             // 节流间隔：60秒内最多推送一次，避免浪费 API 额度
+
+    // ── DOM 元素引用 ──────────────────────────────────────────────
+    const syncStatusEl = document.getElementById('syncStatus');   // 状态文字（已同步/同步中…/同步失败）
+    const syncSetupBtn = document.getElementById('syncSetup');     // 「连接」按钮
+    const syncBtn = document.getElementById('sync');               // 「同步」按钮（先推再拉）
+    const syncIdInput = document.getElementById('syncIdInput');    // 输入框：粘贴旧设备 ID
+    const syncIdConfirm = document.getElementById('syncIdConfirm');// 「确认」按钮：确认输入的 ID
+    const syncIdDisplay = document.getElementById('syncIdDisplay');// UUID 显示区域，点击可复制
+
+    // ── UI 状态切换函数 ──────────────────────────────────────────
+
+    /** 更新同步状态文字和样式 */
+    function updateSyncUi(text, type) {
+      if (!syncStatusEl) return;
+      syncStatusEl.textContent = text;
+      // type: '' = 正常, 'syncing' = 加载中(半透明), 'error' = 错误(红色)
+      syncStatusEl.className = 'sync-status' + (type ? ' is-' + type : '');
+    }
+
+    /** 已连接状态：隐藏输入框，显示同步按钮和 UUID */
+    function showConnectedUi() {
+      syncSetupBtn.style.display = 'none';       // 隐藏「连接」按钮
+      syncIdInput.style.display = 'none';         // 隐藏 ID 输入框
+      syncIdConfirm.style.display = 'none';       // 隐藏「确认」按钮
+      syncBtn.style.display = '';                  // 显示「同步」按钮
+      syncIdDisplay.style.display = '';            // 显示 UUID（可点击复制）
+      syncIdDisplay.textContent = userId;          // 设置 UUID 文字
+      syncIdDisplay.title = '点击复制 ID：' + userId; // 悬浮提示
+    }
+
+    /** 新设备状态：显示 ID 输入框，让用户粘贴旧设备 ID 或留空新建 */
+    function showNewDeviceUi() {
+      syncSetupBtn.style.display = 'none';
+      syncIdInput.style.display = '';              // 显示输入框
+      syncIdConfirm.style.display = '';            // 显示「确认」按钮
+      syncBtn.style.display = 'none';              // 隐藏「同步」按钮
+      syncIdDisplay.style.display = 'none';        // 隐藏 UUID 显示
+    }
+
+    // ── 数据序列化 / 反序列化 ────────────────────────────────────
+    //  由于 Set、Map 等类型无法直接 JSON 化，需要转换后再存储。
+    //  字段名使用缩写以减小传输体积。
+
+    /**
+     * 将当前所有练习进度序列化为 JSON 可存储的对象
+     * @returns {Object} 包含所有状态的扁平对象
+     */
+    function serializeState() {
+      return {
+        cs: [...completedSet],                                         // 已掌握的字根索引集合
+        wb: { a: [...wrongByMode.all], m: [...wrongByMode.merged] },  // 错题集（全字根 / 归并字根）
+        wp: { a: [...wrongProgressByMode.all], m: [...wrongProgressByMode.merged] }, // 错题纠正进度
+        rs: Object.fromEntries(reviewState),                           // 间隔复习状态 Map → {索引: {stage}}
+        rq: reviewQueue,                                               // 待复习队列 [{idx, dueAt}]
+        t: turn,              // 全局轮次计数器（用于计算复习到期时间）
+        to: total,            // 总答题次数
+        c: correct,           // 正确答题次数
+        rm: { a: roundsByMode.all, m: roundsByMode.merged },  // 各模式完成轮数（👑显示用）
+        ls: { a: [...learningSeenByMode.all], m: [...learningSeenByMode.merged] }, // 学习模式已见字根
+        md: mode,                // 当前字根模式：'all'(全字根) 或 'merged'(归并)
+        pm: practiceMode,        // 当前练习模式：normal/review/learning/follow/wrong
+        si: sizeIndex,           // UI 字号大小索引 (0-6)
+        sm: schemeMode,          // 主题：'light' 或 'dark'
+        pl: paletteMode,         // 配色方案：'auto'/'solarized'/'nord' 等
+        ap: autoPaletteBaseIndex,// 自动轮换配色的基准索引
+        ts: Date.now()           // 时间戳（毫秒），用于判断数据新旧
+      };
+    }
+
+    /**
+     * 从 JSON 对象恢复所有练习进度到本地内存变量
+     * 注意：const 声明的集合（completedSet 等）不能重新赋值，
+     *       必须先 .clear() 再逐个 .add()。
+     * @param {Object} d - 由 serializeState() 生成的对象
+     */
+    function deserializeState(d) {
+      // ── 恢复集合类型数据（Set 需要 clear + add） ──
+      completedSet.clear();
+      (d.cs || []).forEach(i => completedSet.add(i));                // 已掌握字根
+
+      wrongByMode.all.clear(); wrongByMode.merged.clear();
+      (d.wb?.a || []).forEach(i => wrongByMode.all.add(i));         // 全字根错题
+      (d.wb?.m || []).forEach(i => wrongByMode.merged.add(i));      // 归并错题
+
+      wrongProgressByMode.all.clear(); wrongProgressByMode.merged.clear();
+      (d.wp?.a || []).forEach(i => wrongProgressByMode.all.add(i)); // 全字根错题纠正
+      (d.wp?.m || []).forEach(i => wrongProgressByMode.merged.add(i));
+
+      reviewState.clear();
+      Object.entries(d.rs || {}).forEach(([k, v]) => reviewState.set(Number(k), v)); // 间隔复习状态
+
+      // ── 恢复普通变量（let 声明，可直接赋值） ──
+      reviewQueue = d.rq || [];     // 待复习队列
+      turn = d.t || 0;              // 全局轮次
+      total = d.to || 0;            // 总答题数
+      correct = d.c || 0;           // 正确数
+
+      roundsByMode.all = d.rm?.a || 0;   // 全字根完成轮数
+      roundsByMode.merged = d.rm?.m || 0; // 归并完成轮数
+
+      learningSeenByMode.all.clear(); learningSeenByMode.merged.clear();
+      (d.ls?.a || []).forEach(i => learningSeenByMode.all.add(i)); // 学习模式已见（全字根）
+      (d.ls?.m || []).forEach(i => learningSeenByMode.merged.add(i));
+
+      // ── 恢复模式状态并重建引用 ──
+      if (d.md) {
+        mode = d.md;
+        activeRoots = mode === 'merged' ? ROOTS_MERGED : ROOTS_VARIANTS; // 切换字根数据源
+      }
+      // 重新绑定当前模式下的快捷引用
+      wrongSet = wrongByMode[mode];
+      wrongProgressSet = wrongProgressByMode[mode];
+      learningSeenSet = learningSeenByMode[mode];
+
+      // ── 恢复 UI 设置 ──
+      if (d.pm) { practiceMode = d.pm; syncPracticeState(practiceMode); updatePracticeButtons(); }
+      if (d.si != null) { sizeIndex = d.si; applySize(); }
+      if (d.sm) setSchemeMode(d.sm);
+      if (d.pl) setPaletteMode(d.pl);
+      autoPaletteBaseIndex = d.ap || 0;
+
+      // ── 重建练习序列并渲染 ──
+      updateModeButtons();
+      buildOrderWithCompleted(completedSet); // 保留已完成项的顺序，随机打乱未完成项
+      renderCurrent();  // 渲染当前题目
+      updateStats();    // 更新准确率、进度等显示
+    }
+
+    // ── 云端读写操作 ──────────────────────────────────────────────
+
+    /**
+     * 推送本地进度到 Supabase（upsert：有则更新，无则插入）
+     * 使用节流调用，避免频繁请求耗尽免费额度
+     */
+    async function pushProgress() {
+      if (!sb || !userId) return;            // 未连接则跳过
+      updateSyncUi('同步中…', 'syncing');    // 显示同步中状态
+      const { error } = await sb.from('progress').upsert({
+        user_id: userId,                     // 行主键：每个用户一行
+        data: serializeState()               // JSONB：存储全部进度
+                                              // updated_at 由数据库 DEFAULT now() 自动填充
+      });
+      updateSyncUi(error ? '同步失败' : '已同步', error ? 'error' : '');
+    }
+
+    /**
+     * 节流调度：延迟 SYNC_MS 毫秒后执行推送。
+     * 在此期间多次调用会重置计时器，确保最后一次变化后 60 秒才真正推送。
+     */
+    function scheduleSync() {
+      if (syncTimer) clearTimeout(syncTimer);       // 取消上一次未执行的推送
+      syncTimer = setTimeout(pushProgress, SYNC_MS); // 重新设定 60 秒后执行
+    }
+
+    /**
+     * 从 Supabase 拉取远端进度并覆盖本地状态
+     * 如果远端无数据（新设备首次连接），则自动推送本地初始状态
+     */
+    async function pullProgress() {
+      if (!sb || !userId) return;
+      updateSyncUi('拉取中…', 'syncing');
+      // maybeSingle()：返回单行或 null，避免多行时报错
+      const { data, error } = await sb.from('progress')
+        .select('data')
+        .eq('user_id', userId)
+        .maybeSingle();
+      if (error) { updateSyncUi('拉取失败', 'error'); return; }
+      if (data?.data) {
+        deserializeState(data.data);          // 有远端数据 → 覆盖本地
+        updateSyncUi('已同步', '');
+      } else {
+        updateSyncUi('本地无远端进度，已就绪', '');
+        await pushProgress();                // 远端无数据 → 推送本地初始状态
+      }
+    }
+
+    // ── 初始化入口 ────────────────────────────────────────────────
+
+    /**
+     * 启动同步流程：
+     * 1. 生成或使用已有 userId
+     * 2. 创建 Supabase 客户端
+     * 3. 切换 UI 到已连接状态
+     * 4. 拉取远端数据（有则恢复，无则推送本地）
+     * 5. 启动 60 秒节流自动推送
+     * @param {string} inputId - 用户输入的旧设备 ID，或空字符串表示新建
+     */
+    async function startSync(inputId) {
+      if (inputId) {
+        userId = inputId.trim();              // 使用用户提供的 ID（跨设备同步）
+      } else {
+        userId = crypto.randomUUID();         // 生成新的随机 UUID
+      }
+      localStorage.setItem('tc_uid', userId); // 持久化到 localStorage，刷新不丢
+      sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); // 初始化客户端
+      showConnectedUi();                      // 切换 UI：隐藏连接按钮，显示同步按钮和 ID
+      await pullProgress();                   // 拉取远端（有数据则恢复，无则推送本地）
+      scheduleSync();                         // 启动节流自动推送
+    }
+
+    // ── 事件绑定 ──────────────────────────────────────────────────
+
+    /** 「连接」按钮：已有 ID 则直接连，否则显示输入框让用户选择 */
+    syncSetupBtn.addEventListener('click', () => {
+      if (userId) {
+        startSync(userId);        // 已有 ID → 直接连接
+      } else {
+        showNewDeviceUi();        // 无 ID → 显示输入框（粘贴旧 ID 或留空新建）
+      }
+    });
+
+    /** 「确认」按钮：确认输入框中的 ID（或留空新建） */
+    syncIdConfirm.addEventListener('click', () => {
+      const val = syncIdInput.value.trim();
+      startSync(val);             // val 为空则新建，有值则用旧 ID 同步
+    });
+
+    /** 输入框回车键也可以确认 */
+    syncIdInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') syncIdConfirm.click();
+    });
+
+    /** 「同步」按钮：先推再拉，确保本地不丢失 */
+    syncBtn.addEventListener('click', async () => {
+      await pushProgress();       // 第一步：推送本地进度到云端
+      await pullProgress();       // 第二步：从云端拉取最新数据覆盖本地
+    });
+
+    /** UUID 显示区域：点击复制到剪贴板，方便发给其他设备 */
+    syncIdDisplay.addEventListener('click', () => {
+      navigator.clipboard.writeText(userId).then(() => {
+        updateSyncUi('ID 已复制', '');
+        setTimeout(() => updateSyncUi('已同步', ''), 1500); // 1.5 秒后恢复状态文字
+      });
+    });
+
+    // ── 自动连接 ──────────────────────────────────────────────────
+    // 页面加载时如果 localStorage 中已有 userId，自动连接并恢复进度
+    if (userId) {
+      startSync(userId);
+    }
   </script>
 </body>
 </html>
