@@ -413,27 +413,27 @@ body.theme-one.theme-dark {
 
 @font-face {
   font-family: "PdfSimSun";
-  src: url("./fonts/BAAAAA_SimSun.ttf") format("truetype");
+  src: url("../fonts/SimSun.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "PdfSimSunExtB";
-  src: url("./fonts/HAAAAA_SimSun-ExtB.ttf") format("truetype");
+  src: url("../fonts/SimSun-ExtB.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "PdfConsolas";
-  src: url("./fonts/CAAAAA_Consolas.ttf") format("truetype");
+  src: url("../fonts/Consolas.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "PdfTumanPUA";
-  src: url("./fonts/DAAAAA_TumanPUA.ttf") format("truetype");
+  src: url("../fonts/TumanPUA.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "PdfLXGWWenKai";
-  src: url("./fonts/AAAAAA_LXGWWenKaiGBScreenR.ttf") format("truetype");
+  src: url("../fonts/LXGWWenKaiGBScreenR.ttf") format("truetype");
   font-display: swap;
 }
 
@@ -480,6 +480,8 @@ header {
   letter-spacing: 0.05em;
   font-weight: 500;
   font-synthesis: none;
+  text-align: center;
+  margin-bottom: 20px;
 }
 .subtitle {
   color: var(--muted);
@@ -676,16 +678,22 @@ header {
   border-color: var(--accent);
 }
 
+.footer-icon {
+  vertical-align: -2px;
+  margin-right: 2px;
+}
+
+.footer-link img.footer-icon {
+  border: none;
+  border-bottom: none !important;
+}
+
 .card {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 22px;
   box-shadow: var(--shadow);
-  padding: 26px 20px 20px;
-  min-height: 260px;
-  display: grid;
-  gap: 4px;
-  align-content: center;
+  padding: 20px 20px;
   position: relative;
   overflow: hidden;
   animation: floatIn 600ms ease-out;
@@ -753,10 +761,7 @@ body.theme-dark .card::before {
 }
 
 .card-meta {
-  position: absolute;
-  top: 14px;
-  left: 16px;
-  right: 16px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 6px 12px;
@@ -766,12 +771,49 @@ body.theme-dark .card::before {
   z-index: 2;
   text-align: left;
   pointer-events: none;
+  margin-bottom: 20px;
 }
 
 .card-meta .stat,
 .card-meta .status {
   font-size: 12px;
   min-height: auto;
+}
+
+.wrong-actions {
+  display: none;
+  gap: 4px;
+  pointer-events: auto;
+}
+
+.practice-wrong .wrong-actions {
+  display: flex;
+}
+
+.wrong-action-btn {
+  border: 1px solid var(--ui-border);
+  background: var(--btn-surface);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--ui-text);
+  cursor: pointer;
+  transition: background-color 120ms ease, box-shadow 120ms ease;
+}
+
+.wrong-action-btn:hover {
+  background: var(--ui-surface-active);
+  box-shadow: var(--ui-shadow);
+}
+
+.wrong-action-btn--danger {
+  border-color: #dc322f;
+  color: #dc322f;
+}
+
+.wrong-action-btn--danger:hover {
+  background: #dc322f;
+  color: #fff;
 }
 
 .root-box {
@@ -970,11 +1012,8 @@ body.theme-dark .card::before {
     gap: 16px;
   }
   .title {
-    font-size: clamp(24px, 7vw, 32px);
-  }
-  .card {
-    padding: 20px 14px;
-    min-height: 220px;
+    font-size: clamp(24px, 10vw, 32px);
+    text-align: left;
   }
   .top-meta {
     gap: 10px;
@@ -1011,6 +1050,16 @@ body.theme-dark .card::before {
   }
   .footer-right {
     justify-self: center;
+  }
+  .footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .footer-icon {
+    width: 12px;
+    height: 12px;
   }
 }
 

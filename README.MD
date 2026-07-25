@@ -5,7 +5,7 @@
 ## 运行方式
 
 - 直接打开 `index.html` 即可运行（纯静态页面，不需要构建或服务端）。
-- `fonts/` 必须与 `index.html` 同级，否则部分字根会变成乱码或方框。
+- `fonts/`、`data/`、`scripts/`、`styles/` 必须与 `index.html` 同级，否则无法正常运行。
 
 ## 练习规则
 
@@ -58,12 +58,19 @@
 - **界面显示**：不隐/半隐/全隐。
 - 鼠标静止一段时间后自动隐藏指针。
 
+## 云同步
+
+- 通过 Supabase 实现进度云同步。
+- 首次同步时生成设备 ID，可在其他设备粘贴该 ID 同步进度。
+- 页面底部显示同步状态栏，支持连接、同步、复制 ID 等操作。
+
 ## 数据与字体
 
-- `index.html` 内嵌了完整字根数据（含变体与归并版本）。
-- `roots*.json` / `roots*.tsv`：字根数据的源文件。
-- `tigercode.pdf`：原始来源文档。
-- `extracted_lines.txt`：从 PDF 提取的行文本。
+- `data/roots.js`：基础字根数据（JS 模块）。
+- `data/roots_merged.js`：归并字根数据（JS 模块）。
+- `docs/roots.tsv`：基础字根数据源文件（TSV）。
+- `docs/roots_merged.tsv`：归并字根数据源文件（TSV）。
+- `docs/tigercode.pdf`：原始来源文档。
 - `fonts/`：用于显示 PDF 中的罕见/PUA 字形，包含：
   - `PdfSimSun` / `PdfSimSunExtB`
   - `PdfTumanPUA`
@@ -72,14 +79,15 @@
 
 ## 目录结构
 
-- `index.html`：UI + 样式 + 逻辑 + 数据（主入口，唯一运行文件）。
+- `index.html`：UI 骨架（主入口）。
+- `scripts/index.js`：核心逻辑。
+- `styles/index.css`：样式。
+- `data/`：运行时字根数据（JS）。
 - `fonts/`：嵌入字体。
-- `roots.json` / `roots.tsv`：基础字根数据。
-- `roots_variants.json` / `roots_variants.tsv`：包含变体的字根数据。
-- `extracted_lines.txt`：PDF 提取行。
-- `tigercode.pdf`：来源 PDF。
-- `script.js`：历史遗留脚本（当前未被页面引用）。
+- `docs/`：字根源数据（TSV）与原始 PDF。
+- `images/`：ICP 备案图标。
+- `check_roots.js` / `find_missing.js`：数据校验工具脚本。
 
 ## 状态说明
 
-所有进度、错题、计时等状态均保存在内存中，刷新页面即清空。
+所有进度、错题、计时等状态默认保存在内存中，刷新页面即清空。启用云同步后，状态会持久化到 Supabase，可在不同设备间恢复。
