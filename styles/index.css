@@ -1125,7 +1125,7 @@ body.theme-dark .card::before {
   padding: 3px 8px;
   font-size: 11px;
   color: var(--ui-text);
-  width: 260px;
+  width: 230px;
   font-family: monospace;
 }
 
